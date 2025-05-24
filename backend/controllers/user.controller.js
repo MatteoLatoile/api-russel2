@@ -1,4 +1,6 @@
 const ReservationModel = require("../models/user");
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
 
 module.exports.getUser = async (req, res) => {
   const catways = await ReservationModel.find();

@@ -6,7 +6,6 @@ const {
   deleteUser,
 } = require("../controllers/user.controller");
 const router = express.Router();
-
 router.get("/", getUser);
 router.get("/:id", getUser);
 router.post("/", setUser);
