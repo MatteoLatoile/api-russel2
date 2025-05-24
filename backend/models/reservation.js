@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const catwaySchema = mongoose.Schema({
+const reservationSchema = mongoose.Schema({
     catwayNumber: {
       type: Number,
       required: true,
@@ -20,4 +20,4 @@ const catwaySchema = mongoose.Schema({
 }
 );
 
-module.exports = mongoose.model("catway", catwaySchema);
+module.exports = mongoose.model("reservation", reservationSchema);

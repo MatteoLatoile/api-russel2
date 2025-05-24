@@ -1,7 +1,7 @@
-const CatwayModel = require("../models/catway");
+const ReservationModel = require("../models/reservation");
 
 module.exports.getCatway = async (req, res) => {
-  const catways = await CatwayModel.find();
+  const catways = await ReservationModel.find();
   res.status(200).json(catways);
 };
 
@@ -10,7 +10,7 @@ module.exports.setCatway = async (req, res) => {
    return res.status(400).json({ message: "Merci d'ajouter un message" });
   }
 
-  const catway = await CatwayModel.create({
+  const catway = await ReservationModel.create({
     catwayNumber: req.body.catwayNumber,
     catwayType: req.body.catwayType,
     catwayState: req.body.catwayState
@@ -19,13 +19,13 @@ module.exports.setCatway = async (req, res) => {
 };
 
 module.exports.editCatway = async (req, res) => {
-  const catway = await CatwayModel.findById(req.params.id);
+  const catway = await ReservationModel.findById(req.params.id);
 
   if (!catway) {
     res.status(400).json({ message: "Ce catway n'existe pas" });
   }
 
-  const updateCatway = await CatwayModel.findByIdAndUpdate(catway, req.body, {
+  const updateCatway = await ReservationModel.findByIdAndUpdate(catway, req.body, {
     new: true,
   });
 
@@ -33,7 +33,7 @@ module.exports.editCatway = async (req, res) => {
 };
 
 module.exports.deleteCatway = async (req, res) => {
-  const catway = await CatwayModel.findById(req.params.id);
+  const catway = await ReservationModel.findById(req.params.id);
 
   if (!catway) {
     res.status(400).json({ message: "Ce catway n'existe pas" });
