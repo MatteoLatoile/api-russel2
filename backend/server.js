@@ -15,6 +15,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/catway", require("./routes/catway.route"));
 app.use("/catway/reservation", require("./routes/reservation.route"));
+app.use("/user", require("./routes/user.route"));
+app.use("/login", require("./routes/user.route"));
+app.use("/logout", require("./routes/user.route"));
 
 // Lancer le serveur
 app.listen(port, () => console.log("Le serveur a démarré au port  " + port));

@@ -13,10 +13,6 @@ const reservationSchema = mongoose.Schema({
       type: String,
       required: true,
     },
-    boatType: {
-      type: String,
-      required: true,
-    },
     startDate: {
     type: Date,
     required: true
