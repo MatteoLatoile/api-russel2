@@ -3,17 +3,28 @@ const mongoose = require("mongoose");
 const reservationSchema = mongoose.Schema({
     catwayNumber: {
       type: Number,
-      required: true,
-      unique: true
+      required: true
     },
-    catwayType: {
+    clientName: {
       type: String,
       required: true,
     },
-    catwayState: {
+    boatName: {
       type: String,
       required: true,
     },
+    boatType: {
+      type: String,
+      required: true,
+    },
+    startDate: {
+    type: Date,
+    required: true
+  },
+  endDate: {
+    type: Date,
+    required: true
+  },
 },
 {
     timestamps: true,
