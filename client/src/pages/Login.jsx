@@ -1,7 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    axios.post("http://localhost:5000/login", {
+      email,
+      password
+    }, {
+      withCredentials: true
+    })
+    .then(result => {
+      if (result.data) {
+        navigate("/", {
+          state: {
+            user: result.data,
+          },
+        });
+      } else {
+        alert("Email ou mot de passe incorrect");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Erreur lors de la connexion");
+    });
+  };
+
   return (
     <div
       style={{
@@ -17,7 +48,7 @@ const Login = () => {
       <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#052B4C" }}>
         Connexion
       </h2>
-      <form>
+      <form onSubmit={handleLogin}>
         <div style={{ marginBottom: "15px" }}>
           <label htmlFor="email" style={{ display: "block", marginBottom: "5px" }}>
             Email
@@ -26,6 +57,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
+            onChange={(e) => setEmail(e.target.value)}
             required
             style={{
               width: "100%",
@@ -43,6 +75,7 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
+            onChange={(e) => setPassword(e.target.value)}
             required
             style={{
               width: "100%",
@@ -68,8 +101,6 @@ const Login = () => {
           Se connecter
         </button>
       </form>
-
-      {/* Lien vers inscription */}
       <p style={{ marginTop: "20px", textAlign: "center" }}>
         Vous n'avez pas de compte ?{" "}
         <Link to="/register" style={{ color: "#052B4C", fontWeight: "bold" }}>

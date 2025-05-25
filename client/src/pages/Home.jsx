@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Homes = () => {
+  const location = useLocation();
+  const user = location.state?.user;
   return (
     // Hero
     <div
@@ -19,7 +22,7 @@ const Homes = () => {
         <img src="" alt="" />
       </div>
       <div>
-        <h1>Bienvenue sur le site de réservation de catways !</h1>
+        <h1>Bienvenue {user.username} sur le site de réservation de catways !</h1>
         <p>
           Nous sommes ravis de vous accueillir. Explorez notre site pour
           découvrir nos catways disponibles.
