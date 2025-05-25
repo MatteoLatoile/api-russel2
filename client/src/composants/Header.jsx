@@ -1,8 +1,12 @@
 import Logo from "../assets/logo.png";
 import Profil from "../assets/person-circle.svg";
 import { Link } from "react-router-dom";
+import Logout from "./Logout";
+import { IsLoggedInContext } from "../App";
+import { useContext } from "react";
 
 const Header = () => {
+  const isLoggedIn = useContext(IsLoggedInContext);
   return (
     <header
       style={{
@@ -62,13 +66,16 @@ const Header = () => {
 
       {/* Icône profil à droite */}
       <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-        <Link to={"/login"}>
+        
+        {isLoggedIn?<Logout />:(
+          <Link to={"/login"}>
           <img
             src={Profil}
             alt="profil utilisateur"
             style={{ height: "50px", cursor: "pointer" }}
           />
         </Link>
+        )}
       </div>
     </header>
   );

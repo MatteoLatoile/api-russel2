@@ -22,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 // Session doit venir ici AVANT les routes
 
 // Ensuite le CORS
+
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true 
@@ -103,6 +104,20 @@ app.get("/user", (req, res) => {
     } else {
         res.status(401).json({ message: "Utilisateur non connecté" });
     }
+});
+
+app.post("/logout", (req, res) => {
+  if(req.session){
+    req.session.destroy(err => {
+        if(err) {
+            return res.status(500).json({ message: "Erreur lors de la déconnexion" });
+        }else{
+            res.status(200).json({ message: "Déconnexion réussie" });
+        }
+    })
+  }else{
+    res.status(400).json({ message: "Aucune session active" });
+  }
 });
 
 // Lancement du serveur

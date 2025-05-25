@@ -22,7 +22,7 @@ const Homes = () => {
         <img src="" alt="" />
       </div>
       <div>
-        <h1>Bienvenue {user.username} sur le site de réservation de catways !</h1>
+        <h1>Bienvenue {user && user.username} sur le site de réservation de catways !</h1>
         <p>
           Nous sommes ravis de vous accueillir. Explorez notre site pour
           découvrir nos catways disponibles.
