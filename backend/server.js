@@ -20,6 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Session doit venir ici AVANT les routes
+
+// Ensuite le CORS
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true 
+}));
+
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -34,11 +42,7 @@ app.use(session({
     }
 }));
 
-// Ensuite le CORS
-app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true 
-}));
+
 
 // Puis les routes
 app.use("/catway", require("./routes/catway.route"));
