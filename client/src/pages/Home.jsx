@@ -43,7 +43,7 @@ const Homes = () => {
               display: "inline-block",
               marginTop: "20px",
             }}
-            to="/reservation"
+            to="/catway/reservation"
           >
             Reserver un catway
           </Link>
