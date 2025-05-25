@@ -1,0 +1,44 @@
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0 !important; 
+  padding: 0 !important; 
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+body{
+    font-family: sans-serif;
+}
+.width50{
+	width : 50%;
+}
+.width30{
+	width : 30%;
+}
+.spaceBetween{
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    color: white !important;
+}
+li{
+    list-style: none;
+    color: white !important;
+}
+.center{
+    justify-content: center;
+ }
+ 
+.alignItems{
+    align-items: center;
+}

@@ -1,0 +1,26 @@
+header{
+    background: #0A2E4C;
+}
+header img{
+    width:10% ;
+}
+ul{
+    display: flex;
+    margin: auto !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    color: white !important;
+}
+li a{
+    list-style: none;
+    color: white !important;
+    font-size: 1.2em;
+}
+header a{
+    text-decoration: none;
+    color: rgb(245, 245, 245) !important;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
