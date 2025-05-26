@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const Homes = () => {
+const Home = () => {
   const location = useLocation();
   const user = location.state?.user;
   return (
@@ -71,4 +71,4 @@ const Homes = () => {
   );
 };
 
-export default Homes;
+export default Home;
